@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Formulario de ejemplo</title>
+	<style>
+		/* Estilos para el formulario */
+		form {
+			max-width: 500px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #f2f2f2;
+			border: 1px solid #ccc;
+			border-radius: 10px;
+			font-family: Arial, sans-serif;
+		}
+		fieldset {
+			border: none;
+			margin: 0;
+			padding: 0;
+		}
+		legend {
+			font-size: 24px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		label {
+			display: block;
+			margin-bottom: 8px;
+			font-weight: bold;
+		}
+		input[type="text"],
+		select {
+			padding: 6px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+			font-size: 16px;
+			margin-bottom: 10px;
+			width: 100%;
+		}
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+			margin-top: 20px;
+		}
+		input[type="submit"]:hover {
+			background-color: #45a049;
+		}
+		input[type="text"]:focus,
+		select:focus {
+			outline: none;
+			box-shadow: 0 0 3px rgba(0,0,0,0.3);
+		}
+		#info {
+			display: none;
+			margin-top: 20px;
+			padding: 10px;
+			background-color: #e6e6e6;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			text-align: center;
+			font-size: 18px;
+			font-weight: bold;
+			color: #333;
+		}
+		details {
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            padding: 0.5em 0.5em 0;
+			margin: 1em;
+        }
+
+        summary {
+            font-weight: bold;
+            margin: -0.5em -0.5em 0;
+            padding: 0.5em;
+        }
+
+        details[open] {
+            padding: 0.5em;
+			margin: 1em;
+        }
+		details[open] summary {
+            border-bottom: 1px solid #aaa;
+            margin-bottom: 0.5em;
+        }
+        input:invalid {
+            border: 2px solid red;
+        }
+        input:valid {
+            border: 2px solid green;
+        } 
+		@media screen and (-webkit-min-device-pixel-ratio:0) {
+			input[type="text"] {
+				background-color: #f5f5f5;
+			}
+			input[type="submit"] {
+				background-image: -webkit-linear-gradient(top,#5cb85c 0,#419641 100%);
+			}
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<fieldset>
+			<legend>Formulario de ejemplo</legend>
+			<label for="nombre">Nombre:</label>
+			<input type="text" id="nombre" name="nombre" required>
+
+			<label for="email">Email:</label>
+			<input type="text" id="email" name="email" required>
+
+			<label for="ciudad">Ciudad:</label>
+			<select id="ciudad" name="ciudad">
+				<option value="">Seleccione una ciudad</option>
+				<option value="Madrid">Madrid</option>
+				<option value="Barcelona">Barcelona</option>
+				<option value="Valencia">Valencia</option>
+				<option value="Sevilla">Sevilla</option>
+		</select>
+
+		<label for="edad">Edad:</label>
+		<input type="text" id="edad" name="edad" required>
+
+		<label for="telefono">Teléfono:</label>
+		<input type="text" id="telefono" name="telefono" required>
+		
+		<input type="submit" value="Enviar">
+	</fieldset>
+	<details>
+	<summary>Detalles Legales</summary>
+		Esto es un ejemplo de details y summary.<br>
+	</details>
+</form>
+
+<div id="info">¡Gracias por enviar el formulario!</div>
+
+<script>
+	// Mostrar mensaje de confirmación
+	var form = document.querySelector('form');
+	var info = document.getElementById('info');
+
+	form.addEventListener('submit', function(event) {
+		event.preventDefault();
+		info.style.display = 'block';
+	});
+
+	// tabulaciones de html
+	document.getElementById('nombre').accessKey = 'n';
+	document.getElementById('email').accessKey = 'e';
+	document.getElementById('ciudad').accessKey = 'c';
+	document.getElementById('edad').accessKey = 'd';
+	document.getElementById('telefono').accessKey = 't';
+	document.getElementById('nombre').tabIndex = 1;
+	document.getElementById('email').tabIndex = 2;
+	document.getElementById('ciudad').tabIndex = 3;
+	document.getElementById('edad').tabIndex = 4;
+	document.getElementById('telefono').tabIndex = 5;
+
+	// Deshabilita campo de edad
+	document.getElementById('edad').disabled = true;  
+</script>
+
